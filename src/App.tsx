@@ -1,3 +1,4 @@
+import ReactPixel from 'react-facebook-pixel';
 import { MantineProvider, createTheme } from "@mantine/core";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { MainLayout } from "./layouts/MainLayout";
@@ -11,6 +12,7 @@ import OrdersPage from "./pages/Orders"; // Шинэ!
 import ProfilePage from "./pages/Profile"; // Шинэ!
 import { Notifications } from "@mantine/notifications";
 import TermsPage from "./pages/TermsPage";
+import { useEffect } from "react";
 
 const theme = createTheme({
   primaryColor: "orange",
@@ -28,6 +30,11 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
 };
 
 export default function App() {
+  useEffect(() => {
+    // Таны зураг дээрх ID-г энд шууд холболоо
+    ReactPixel.init('2280451912450383'); 
+    ReactPixel.pageView();
+  }, []);
   return (
     <MantineProvider theme={theme} forceColorScheme="light">
       <Notifications position="top-right" zIndex={1000} />
