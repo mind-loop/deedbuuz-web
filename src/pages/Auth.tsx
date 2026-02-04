@@ -1,3 +1,4 @@
+import ReactPixel from 'react-facebook-pixel';
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import {
@@ -92,6 +93,7 @@ export default function AuthPage() {
         try {
             const res = await authService.signUp(values);
             if (res.success) {
+              ReactPixel.track('CompleteRegistration');
                 notifications.show({ 
                     title: 'Бүртгэл амжилттай', 
                     message: 'Одоо нэвтрэх хэсгээр нэвтэрнэ үү.', 

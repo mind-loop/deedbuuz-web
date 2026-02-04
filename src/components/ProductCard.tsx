@@ -1,3 +1,4 @@
+import ReactPixel from 'react-facebook-pixel';
 import { Card, Image, Text, Group, Badge, Button, Stack } from '@mantine/core';
 import { IconShoppingCartPlus } from '@tabler/icons-react';
 import type { Product } from '../types';
@@ -9,6 +10,13 @@ export function ProductCard({ product }: { product: Product }) {
   const [isAdding, setIsAdding] = useState(false);
 
   const handleAddToCart = async () => {
+    ReactPixel.track('AddToCart', {
+    content_name: product.content,        // 'Хонины махтай бууз'
+    content_category: 'Бууз',           // Төрөл
+    value: product.price,               // 25000
+    currency: 'MNT',                    // Төгрөг
+    content_ids: [product.id.toString()] // Барааны ID
+  });
     setIsAdding(true);
     // useBasketStore доторх addToBasket-ийг дуудна
     await addToBasket(product.id, 1);
