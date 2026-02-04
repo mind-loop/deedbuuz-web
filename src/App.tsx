@@ -32,7 +32,7 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
 export default function App() {
   useEffect(() => {
     // Таны зураг дээрх ID-г энд шууд холболоо
-    ReactPixel.init('2280451912450383'); 
+    ReactPixel.init('775378511579466'); 
     ReactPixel.pageView();
   }, []);
   return (
