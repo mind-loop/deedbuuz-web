@@ -197,11 +197,11 @@ export function MainLayout() {
         <Box style={{ minHeight: 'calc(100vh - 70px)' }}>
           <Outlet />
         </Box>
-        
-        {/* FOOTER SECTION */}
+       {/* FOOTER SECTION */}
         <Box component="footer" style={{ backgroundColor: '#fff', borderTop: '1px solid #eee' }}>
           <Container size="lg" py={50}>
             <Grid gutter={40}>
+              {/* ... өмнөх Grid.Col-ууд хэвээрээ байна ... */}
               <Grid.Col span={{ base: 12, md: 4 }}>
                 <Stack gap="sm">
                   <Group gap="xs">
@@ -248,12 +248,31 @@ export function MainLayout() {
               </Grid.Col>
             </Grid>
 
-            <Divider my={30} />
-            <Group justify="space-between">
-              <Text size="xs" c="dimmed">© {new Date().getFullYear()} DEEDBUUZ.MN. Бүх эрх хуулиар хамгаалагдсан.</Text>
+           <Divider my={30} />
+            
+            <Group justify="space-between" align="center" wrap="wrap">
+              <Stack gap={4}>
+                <Text size="xs" c="dimmed">
+                  © {new Date().getFullYear()} DEEDBUUZ.MN. Бүх эрх хуулиар хамгаалагдсан.
+                </Text>
+                <Group gap={4}>
+                  <Text size="xs" c="dimmed">Хөгжүүлсэн:</Text>
+                  <Anchor 
+                    href="https://itwork.mn" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    c="orange.7" 
+                    fw={700}
+                    style={{ fontSize: '12px' }}
+                  >
+                    АЙТИ ВОРК ХХК
+                  </Anchor>
+                </Group>
+              </Stack>
+              
               <Group gap="xs" opacity={0.6}>
-                 <Image src="https://img.icons8.com/color/48/visa.png" h={20} />
-                 <Image src="https://img.icons8.com/color/48/mastercard.png" h={20} />
+                 <Image src="https://img.icons8.com/color/48/visa.png" h={20} alt="Visa" />
+                 <Image src="https://img.icons8.com/color/48/mastercard.png" h={20} alt="Mastercard" />
               </Group>
             </Group>
           </Container>
