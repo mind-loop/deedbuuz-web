@@ -1,4 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import ReactPixel from 'react-facebook-pixel';
 import {
   ActionIcon,
   Alert, Box,
@@ -66,6 +68,14 @@ export default function CheckoutPage() {
           color: 'green',
           autoClose: 5000,
         });
+
+        ReactPixel.track('Purchase', {
+        value: totalPrice,
+        currency: 'MNT',
+        content_name: 'Бүтээгдэхүүн худалдан авалт хийгдлээ.',
+        content_ids: [orderId],
+        content_type: 'product',
+      });
         
         // Сагсыг хоослохын тулд дахин fetch хийнэ
         await fetchBasket();
